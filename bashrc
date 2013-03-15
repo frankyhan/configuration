@@ -56,6 +56,8 @@ else
 fi
 unset color_prompt force_color_prompt
 
+set -o vi
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 	xterm*|rxvt*)
@@ -109,6 +111,8 @@ PATH="$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/b
 
 CLASSPATH=".:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:"
 PATH="$PATH:$HLA_HOME"
+PATH="$PATH:/home/service/httpd/bin"
+PATH="$PATH:/home/search/coreseek/bin/"
 hlalib="$HLA_HOME/hlalib"
 hlainc="$HLA_HOME/include"
 hlatmp="$HLA_HOME/tmp"
