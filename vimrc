@@ -135,7 +135,7 @@ exec "! gdb a.out"
 endfunc
 " <F7>编译和运行C++程序
 
-let Tlist_Ctags_Cmd = "/sw/bin/ctags"
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 40
 map <F4> :TlistToggle<cr>
 
