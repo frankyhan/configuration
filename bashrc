@@ -107,7 +107,7 @@ ANDROID_HOME="/opt/developmentTools/android-sdk-linux"
 JAVA_HOME="/opt/jdk1.6.0_33"
 
 
-PATH="$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+PATH="$HOME/:$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 
 CLASSPATH=".:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:"
 PATH="$PATH:$HLA_HOME"
