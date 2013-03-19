@@ -90,6 +90,8 @@ alias gtrm='git rm'
 alias gtci='git commit'
 alias gtct='git checkout'
 alias gtad='git add'
+alias gtdf='git diff'
+alias gt='git'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
