@@ -85,6 +85,11 @@ alias la='ls -Ah'
 alias l='ls -CFh'
 alias hla='hla -lmelf_i386'
 
+alias gtst='git status'
+alias gtrm='git rm'
+alias gtci='git commit'
+alias gtct='git checkout'
+alias gtad='git add'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
