@@ -1,2 +1,10 @@
+[user]
+    name = Jeremy Herve
+    email = my_email_address    
+[github]
+    user = frankyhan 
+    token = my_token
 [color]
-ui = true
+    ui = true
+[help]
+    autocorrect = 1
