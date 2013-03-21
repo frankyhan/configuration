@@ -93,6 +93,16 @@ alias gtad='git add'
 alias gtdf='git diff'
 alias gtps='git push'
 alias gtpl='git pull'
+alias gtcl='git clone'
+alias gtlg='git log'
+alias gtgp='git grep'
+alias gtbr='git branch'
+alias gtit='git init'
+alias gtmg='git merge'
+alias gtmv='git mv'
+alias gttg='git tag'
+alias gtrt='git reset'
+alias gtft='git fetch'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
