@@ -4,3 +4,4 @@ rm -rf ~/.vim
 cp -rf vim ~/.vim
 cp -rf gitconfig ~/.gitconfig
 cp -rf gitignore ~/.gitignore
+cp -rf ctags ~/.ctags
