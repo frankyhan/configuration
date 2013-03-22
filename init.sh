@@ -3,3 +3,4 @@ cp -rf vimrc ~/.vimrc
 rm -rf ~/.vim
 cp -rf vim ~/.vim
 cp -rf gitconfig ~/.gitconfig
+cp -rf gitignore ~/.gitignore
