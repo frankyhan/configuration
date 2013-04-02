@@ -80,7 +80,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alFh'
+alias ll='ls -lFh'
 alias la='ls -Ah'
 alias l='ls -CFh'
 alias hla='hla -lmelf_i386'
