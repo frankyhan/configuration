@@ -103,6 +103,8 @@ alias gtmv='git mv'
 alias gttg='git tag'
 alias gtrt='git reset'
 alias gtft='git fetch'
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
