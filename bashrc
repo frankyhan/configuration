@@ -80,7 +80,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alFh'
+alias ll='ls -lFh'
 alias la='ls -Ah'
 alias l='ls -CFh'
 alias hla='hla -lmelf_i386'
@@ -103,6 +103,8 @@ alias gtmv='git mv'
 alias gttg='git tag'
 alias gtrt='git reset'
 alias gtft='git fetch'
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -131,6 +133,7 @@ CLASSPATH=".:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:"
 PATH="$PATH:$HLA_HOME"
 PATH="$PATH:/home/service/httpd/bin"
 PATH="$PATH:/home/search/coreseek/bin/"
+PATH="/home/work/third/bin/:$PATH"
 hlalib="$HLA_HOME/hlalib"
 hlainc="$HLA_HOME/include"
 hlatmp="$HLA_HOME/tmp"
