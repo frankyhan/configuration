@@ -7,4 +7,7 @@ if [ $# -ne 1 ];then
 	echo 'paramater is no corret exit'
 	exit
 fi
-ssh -t osys11.meilishuo.com  ssh 172.16.0.$1
+
+#echo ${1:0:1}
+#echo ${1:1}
+ssh -t osys11.meilishuo.com  ssh 172.16.${1:0:1}.${1:1}
