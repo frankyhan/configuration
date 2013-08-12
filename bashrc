@@ -145,3 +145,25 @@ export hlatmp
 
 echo "this is bashrc"
 unset SSH_ASKPASS
+
+
+
+export HADOOP_HOME=/usr/local/hadoop
+
+# Set JAVA_HOME (we will also configure JAVA_HOME directly for Hadoop later on)
+export JAVA_HOME=/usr
+
+# Some convenient aliases and functions for running Hadoop-related commands
+unalias fs &> /dev/null
+alias hfs="hadoop fs"
+unalias hls &> /dev/null
+alias hls="hfs -ls"
+
+#
+lzohead () {
+    hadoop fs -cat $1 | lzop -dc | head -1000 | less
+}
+
+# Add Hadoop bin/ directory to PATH
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:/usr/local/pig/bin
