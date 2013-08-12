@@ -143,6 +143,9 @@ export hlalib
 export hlainc
 export hlatmp
 
+
+
+
 echo "this is bashrc"
 unset SSH_ASKPASS
 
