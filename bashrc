@@ -109,10 +109,19 @@ alias tn='tmux new -s'
 alias hls='hadoop fs -ls'
 alias hcp='hadoop fs -cp'
 alias hmv='hadoop fs -mv'
+alias hrm='hadoop fs -rm'
+alias hrmr='hadoop fs -rmr'
 alias hcfl='hadoop fs -copyFromLocal'
 alias hmfl='hadoop fs -moveFromLocal'
-alias hcfl='hadoop fs -copyToLocal'
-alias hmfl='hadoop fs -moveToocal'
+alias hctl='hadoop fs -copyToLocal'
+alias hmtl='hadoop fs -moveToocal'
+alias hmkdir='hadoop fs -mkdir'
+alias htail='hadoop fs -tail'
+alias hcat='hadoop fs -cat'
+alias hget='hadoop fs -get'
+alias hput='hadoop fs -put'
+alias hdu='hadoop fs -du'
+alias hkill='hadoop job -kill'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -132,10 +141,10 @@ fi
 
 PATH="$HOME/:$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 
-PATH="$PATH:$HLA_HOME"
 PATH="$PATH:/home/service/httpd/bin"
 PATH="$PATH:/home/search/coreseek/bin/"
 PATH="/home/work/third/bin/:$PATH"
+PATH="/home/service/third/bin/:$PATH"
 
 echo "this is bashrc"
 unset SSH_ASKPASS
@@ -156,7 +165,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:`$HADOOP_HOME/
 
 
 
-export LD_LIBRARY_PATH=/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/hadoop/hadoop-0.23.8-src/hadoop-hdfs-project/hadoop-hdfs/target/native/target/usr/local/lib
+export LD_LIBRARY_PATH=/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/hadoop/hadoop-0.23.8-src/hadoop-hdfs-project/hadoop-hdfs/target/native/target/usr/local/lib:/home/service/third/lib/mysql
 #export LD_LIBRARY_PATH=/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/service/libevent/lib:/home/hadoop/hadoop-0.22.0/c++/Linux-amd64-64/lib
 #export LD_LIBRARY_PATH=/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/service/libevent/lib:/usr/local/hadoop-0.20.2-cdh3u6/c++/Linux-amd64-64/lib
 
