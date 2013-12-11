@@ -137,12 +137,12 @@ PATH="/home/work/third/bin/:$PATH"
 hlalib="$HLA_HOME/hlalib"
 hlainc="$HLA_HOME/include"
 hlatmp="$HLA_HOME/tmp"
-
+LD_LIBRARY_PATH=/home/work/third/lib/mysql
 export PATH
 export hlalib
 export hlainc
 export hlatmp
-
+export LD_LIBRARY_PATH
 
 
 
@@ -170,3 +170,36 @@ lzohead () {
 # Add Hadoop bin/ directory to PATH
 export PATH=$PATH:$HADOOP_HOME/bin
 export PATH=$PATH:/usr/local/pig/bin
+# mark
+export MARKPATH=$HOME/.marks
+export MARKDEFAULT=sanguo#设置你的默认书签，可以直接输入g跳转
+
+function g {
+    local m=$1
+    if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
+    cd -P "$MARKPATH/$m" 2>/dev/null || echo "No such mark: $m"
+}
+function mark {
+    mkdir -p "$MARKPATH"
+    local m=$1
+    if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
+    rm -f "$MARKPATH/$m"
+    ln -s "$(pwd)" "$MARKPATH/$m"
+}
+function unmark {
+    local m=$1
+    if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
+    rm -i "$MARKPATH/$m"
+}
+function gs {
+    ls -l "$MARKPATH" | grep ^l | cut -d ' ' -f 13-
+}
+
+_completemarks() {
+    local curw=${COMP_WORDS[COMP_CWORD]}
+    local wordlist=$(ls -l "$MARKPATH" | grep ^l | cut -d ' ' -f 13)
+    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+    return 0
+}
+
+complete -F _completemarks g unmark
