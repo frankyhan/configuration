@@ -139,21 +139,17 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-PATH="$HOME/:$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
-
-PATH="$PATH:/home/service/httpd/bin"
-PATH="$PATH:/home/search/coreseek/bin/"
-PATH="/home/work/third/bin/:$PATH"
 
 echo "this is bashrc"
 unset SSH_ASKPASS
 
 # User specific aliases and functions
-export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre
-export HADOOP_HOME=/home/hadoop/hadoop/hadoop-1.0.1
-#export HADOOP_PREFIX=/home/hadoop/hadoop/hadoop-1.0.1
-#export HADOOP_HOME=/home/hadoop/hadoop-0.23.8
-#export HADOOP_HOME=/usr/local/hadoop-0.20.2-cdh3u6
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85.x86_64/jre
+export HADOOP_HOME=/hadoop/hadoop
+PATH="$HOME/:$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+PATH="$PATH:/home/service/httpd/bin"
+PATH="$PATH:/home/search/coreseek/bin/"
+PATH="/home/work/third/bin/:$PATH"
 export PATH=$HADOOP_HOME/bin:$PATH
 export PIG_HOME=/home/hadoop/hadoop/pig-0.10.0
 export PATH=$PATH:$PIG_HOME/bin
@@ -205,3 +201,5 @@ _completemarks() {
 }
 
 complete -F _completemarks g unmark
+
+export SPARK_EXAMPLES_JAR=$HOME/spark-0.7.2/examples/target/scala-2.9.3/spark-examples_2.9.3-0.7.2.jar
