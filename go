@@ -1,13 +1,20 @@
 #!/bin/bash
 
-
-#ssh -t osys11 ssh 1
-
-if [ $# -ne 1 ];then 
-	echo 'paramater is no corret exit'
+if [ $# -eq 1 ]
+then
+	name=$1
+	#user='root'
+	user='fenghan'
+elif [ $# -eq 2 ]
+then
+	name=$1
+        user=$2
+else
+	echo "参数错误"
 	exit
 fi
 
-#echo ${1:0:1}
-#echo ${1:1}
-ssh -t osys11.meilishuo.com  ssh 172.16.${1:0:1}.${1:1}
+ip=`cat ip.txt | grep -e "^${name}" | head -1 | cut -d' ' -f2`
+
+cmd="expect ./ssh_ip.exp $ip $user"
+$cmd

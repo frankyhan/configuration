@@ -58,6 +58,7 @@ unset color_prompt force_color_prompt
 
 set -o vi
 
+set tabstop=4
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 	xterm*|rxvt*)
