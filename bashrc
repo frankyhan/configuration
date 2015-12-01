@@ -106,6 +106,23 @@ alias gtrt='git reset'
 alias gtft='git fetch'
 alias ta='tmux attach -t'
 alias tn='tmux new -s'
+
+alias hls='hadoop fs -ls'
+alias hcp='hadoop fs -cp'
+alias hmv='hadoop fs -mv'
+alias hrm='hadoop fs -rm'
+alias hrmr='hadoop fs -rmr'
+alias hcfl='hadoop fs -copyFromLocal'
+alias hmfl='hadoop fs -moveFromLocal'
+alias hctl='hadoop fs -copyToLocal'
+alias hmtl='hadoop fs -moveToocal'
+alias hmkdir='hadoop fs -mkdir'
+alias htail='hadoop fs -tail'
+alias hcat='hadoop fs -cat'
+alias hget='hadoop fs -get'
+alias hput='hadoop fs -put'
+alias hdu='hadoop fs -du'
+alias hkill='hadoop job -kill'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -122,30 +139,68 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
 fi
 
-##### ADD By Gentoo User #######
-HLA_HOME="/home/gentoo/HLA/usr/hla"
-ANDROID_HOME="/opt/developmentTools/android-sdk-linux"
-JAVA_HOME="/opt/jdk1.6.0_33"
-
-
-PATH="$HOME/:$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
-
-CLASSPATH=".:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:"
-PATH="$PATH:$HLA_HOME"
-PATH="$PATH:/home/service/httpd/bin"
-PATH="$PATH:/home/search/coreseek/bin/"
-PATH="/home/work/third/bin/:$PATH"
-hlalib="$HLA_HOME/hlalib"
-hlainc="$HLA_HOME/include"
-hlatmp="$HLA_HOME/tmp"
-
-export PATH
-export hlalib
-export hlainc
-export hlatmp
-
-
 
 
 echo "this is bashrc"
 unset SSH_ASKPASS
+
+# User specific aliases and functions
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85.x86_64/jre
+export HADOOP_HOME=/hadoop/hadoop
+PATH="$HOME/:$JAVA_HOME/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+PATH="$PATH:/home/service/httpd/bin"
+PATH="$PATH:/home/search/coreseek/bin/"
+PATH="/home/work/third/bin/:$PATH"
+export PATH=$HADOOP_HOME/bin:$PATH
+export PIG_HOME=/home/hadoop/hadoop/pig-0.10.0
+export PATH=$PATH:$PIG_HOME/bin
+export HIVE_HOME=/home/hadoop/hadoop/hive-0.8.1
+export PATH=$PATH:$HIVE_HOME/bin:/usr/local/bin
+export HADOOP_HOME_WARN_SUPPRESS="TRUE"
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:`$HADOOP_HOME/bin/hadoop classpath`
+
+
+export LD_LIBRARY_PATH=/home/work/third/lib/mysql:/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/hadoop/hadoop-0.23.8-src/hadoop-hdfs-project/hadoop-hdfs/target/native/target/usr/local/lib:/home/service/third/lib/mysql
+#export LD_LIBRARY_PATH=/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/service/libevent/lib:/home/hadoop/hadoop-0.22.0/c++/Linux-amd64-64/lib
+#export LD_LIBRARY_PATH=/home/service/boost/lib:/home/service/thrift/lib:/home/service/libevent/lib:/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/jre/lib/amd64/server:/home/service/libevent/lib:/usr/local/hadoop-0.20.2-cdh3u6/c++/Linux-amd64-64/lib
+
+#export CLASSPATH=/usr/local/cdh/hadoop/conf:/usr/local/cdh/hadoop/hadoop-core-0.20.2-cdh3u2.jar:/usr/local/cdh/hadoop/lib/commons-logging-1.0.4.jar
+
+# Add Hadoop bin/ directory to PATH
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:/usr/local/pig/bin
+# mark
+export MARKPATH=$HOME/.marks
+export MARKDEFAULT=sanguo#设置你的默认书签，可以直接输入g跳转
+
+function g {
+    local m=$1
+    if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
+    cd -P "$MARKPATH/$m" 2>/dev/null || echo "No such mark: $m"
+}
+function mark {
+    mkdir -p "$MARKPATH"
+    local m=$1
+    if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
+    rm -f "$MARKPATH/$m"
+    ln -s "$(pwd)" "$MARKPATH/$m"
+}
+function unmark {
+    local m=$1
+    if [ "$m" = "" ]; then m=$MARKDEFAULT; fi
+    rm -i "$MARKPATH/$m"
+}
+function gs {
+    ls -l "$MARKPATH" | grep ^l | cut -d ' ' -f 13-
+}
+
+_completemarks() {
+    local curw=${COMP_WORDS[COMP_CWORD]}
+    local wordlist=$(ls -l "$MARKPATH" | grep ^l | cut -d ' ' -f 13)
+    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+    return 0
+}
+
+complete -F _completemarks g unmark
+
+export SPARK_EXAMPLES_JAR=$HOME/spark-0.7.2/examples/target/scala-2.9.3/spark-examples_2.9.3-0.7.2.jar

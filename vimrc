@@ -29,7 +29,8 @@ set softtabstop=4
 set shiftwidth=4
 "  统一缩进为4
 
-set noexpandtab
+" set noexpandtab
+set expandtab
 " 不要用空格代替制表符
 
 " set number
