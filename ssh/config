@@ -1,4 +1,0 @@
-Host relay01.meilishuo.com relay01 relay02.meilishuo.com relay02 frelay.meilishuo.com frelay
-user fenghan
-ServerAliveInterval 20
-ForwardAgent yes
