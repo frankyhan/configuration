@@ -105,6 +105,7 @@ alias gttg='git tag'
 alias gtrt='git reset'
 alias gtft='git fetch'
 alias ta='tmux attach -t'
+alias tls='tmux ls'
 alias tn='tmux new -s'
 
 alias hls='hadoop fs -ls'
@@ -179,4 +180,3 @@ _completemarks() {
 
 complete -F _completemarks g unmark
 
-export SPARK_EXAMPLES_JAR=$HOME/spark-0.7.2/examples/target/scala-2.9.3/spark-examples_2.9.3-0.7.2.jar
