@@ -179,4 +179,4 @@ _completemarks() {
 }
 
 complete -F _completemarks g unmark
-
+export PS1='\[\033[01;33m\]\u@\h\[\033[00m\]:\w\[\033[01;35m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
