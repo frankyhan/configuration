@@ -181,3 +181,4 @@ _completemarks() {
 complete -F _completemarks g unmark
 export PS1='\[\033[01;33m\]\u@\h\[\033[00m\]:\w\[\033[01;35m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
 export LC_ALL=zh_CN.UTF-8
+export PATH='~/local/bin:'$PATH
